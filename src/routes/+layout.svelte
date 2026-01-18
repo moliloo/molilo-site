@@ -5,15 +5,23 @@
     import Footer from '$lib/components/Footer.svelte';
 
     import { theme } from '$lib/stores/ui';
-    import { vhsEnabled } from '$lib/stores/ui';
+    import { crtEnabled } from '$lib/stores/ui';
     import { musicEnabled } from '$lib/stores/ui';
     import { toggleMusic } from '$lib/audio/music';
+	import { onMount } from 'svelte'
 
+    onMount(() => {
+		const unsubscribe = theme.subscribe((value) => {
+			document.documentElement.dataset.theme = value;
+		});
+
+		return unsubscribe;
+	});
     // let clickToggleMusic = toggleMusic($musicEnabled);
 
     // let clickToggleTheme = document.documentElement.dataset.theme = $theme;
 
-    // let clickToggleVhs = document.body.classList.toggle('vhs', $vhsEnabled);
+    // let clickTogglecrt = document.body.classList.toggle('crt', $crtEnabled);
 
 	let { children } = $props();
 </script>

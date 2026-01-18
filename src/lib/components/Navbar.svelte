@@ -1,14 +1,33 @@
 <script>
+    import { onMount } from 'svelte';
     import { Moon, Sun, Tv, VolumeSmall, VolumeCross } from '@solar-icons/svelte/Linear'
     import { Tv as TvBold } from '@solar-icons/svelte/Bold'
 	import headerDetail from '$lib/assets/svg/header_detail.svg';
 	import '$lib/styles/typography.css';
 
-    import { theme, vhsEnabled, musicEnabled } from '$lib/stores/ui';
+    import { theme, crtEnabled, musicEnabled } from '$lib/stores/ui';
+	import { toggleMusic } from '$lib/audio/music'
 
     function toggleTheme() {
         theme.update(t => (t === 'dark' ? 'light' : 'dark'));
     }
+
+
+    onMount(() => {
+        const unsub = musicEnabled.subscribe((enabled) => {
+            toggleMusic(enabled);
+        });
+
+        return unsub;
+    });
+
+    onMount(() => {
+        const unsub = crtEnabled.subscribe((enabled) => {
+            document.body.classList.toggle('crt', enabled);
+        });
+
+        return unsub;
+    });
 </script>
 
 <div class="GlassContainer">
@@ -33,8 +52,8 @@
                 {/if}
             </button>
 
-            <button on:click={() => vhsEnabled.update(v => !v)}>
-                {#if $vhsEnabled}
+            <button on:click={() => crtEnabled.update(v => !v)}>
+                {#if $crtEnabled}
                     <TvBold size={36} />
                 {:else}
                     <Tv size={36} />
@@ -103,6 +122,7 @@
                 background: transparent;
                 border: none;
                 cursor: pointer;
+                color: var(--text);
             }
         }
     }
