@@ -128,4 +128,14 @@
             }
         }
     }
+
+    .GlassContainer {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 1360px;
+        transform: translateX(-50%);
+    }
 </style>

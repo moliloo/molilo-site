@@ -17,11 +17,6 @@
 
 		return unsubscribe;
 	});
-    // let clickToggleMusic = toggleMusic($musicEnabled);
-
-    // let clickToggleTheme = document.documentElement.dataset.theme = $theme;
-
-    // let clickTogglecrt = document.body.classList.toggle('crt', $crtEnabled);
 
 	let { children } = $props();
 </script>
