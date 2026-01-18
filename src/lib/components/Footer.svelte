@@ -31,14 +31,14 @@
 
         background-image: linear-gradient(
             90deg,
-            #AB3434 0%,
-            #AB3434 25%,
+            var(--detail-dark-red) 0%,
+            var(--detail-dark-red) 25%,
 
-            #F44242 25%,
-            #F44242 50%,
+            var(--detail-red) 25%,
+            var(--detail-red) 50%,
 
-            #FBA257 50%,
-            #FBA257 75%,
+            var(--detail-yellow) 50%,
+            var(--detail-yellow) 75%,
 
             #4677E0 75%,
             #4677E0 100%

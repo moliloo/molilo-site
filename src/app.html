@@ -14,16 +14,27 @@
 
     :root {
         color-scheme: light dark;
+
+        --bg-dark: #00010b;
+        --dark-text: #faf0e4;
+        --dark-bg: #00010b;
+        --detail-blue: #4677e0;
+        --detail-dark-red: #ab3434;
+        --detail-red: #f44242;
+        --detail-yellow: #fba257;
+        --dark-text-50: rgba(250, 240, 228, 0.50);
     }
 
     :root[data-theme='light'] {
         --bg: #ffffff;
         --text: #111111;
+        --hint-text: #11111150;
     }
 
     :root[data-theme='dark'] {
-        --bg: #00010B;
-        --text: #FAF0E4;
+        --bg: var(--bg-dark);
+        --text: var(--dark-text);
+        --hint-text: var(--dark-text-50);
     }
 
     .crt {
@@ -35,12 +46,19 @@
         animation-direction: alternate;
     }
 
-        @keyframes crt-flicker {
-            from {
-                text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
-            }
-            to {
-                text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
-            }
+    @keyframes crt-flicker {
+        from {
+            text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
         }
+        to {
+            text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+        }
+    }
+
+    body {
+        background-image: url('/assets/images/dark-bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 </style>

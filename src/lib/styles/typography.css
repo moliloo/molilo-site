@@ -27,3 +27,12 @@
     line-height: 26px;
     color: var(--text);
 }
+
+.hint-text {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--hint-text);
+}
