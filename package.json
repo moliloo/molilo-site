@@ -21,6 +21,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
-		"@solar-icons/svelte": "^1.0.1"
+		"@solar-icons/svelte": "^1.0.1",
+		"@splidejs/svelte-splide": "^0.2.9"
 	}
 }

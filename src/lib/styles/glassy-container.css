@@ -1,6 +1,7 @@
+
 .GlassContainer {
     --corner-radius: 20px;
-    --base-strength: 20px;
+    --base-strength: 14px;
     --extra-blur: 2px;
     --softness: 12px;
     --tint-amount: 0;
@@ -42,7 +43,7 @@
     z-index: 3;
     overflow: hidden;
     border-radius: var(--corner-radius);
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
 .GlassMaterial > div {
     position: absolute;

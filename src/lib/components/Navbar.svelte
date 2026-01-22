@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { onMount } from 'svelte';
     import { Moon, Sun, Tv, VolumeSmall, VolumeCross } from '@solar-icons/svelte/Linear'
     import { Tv as TvBold } from '@solar-icons/svelte/Bold'
@@ -135,7 +135,7 @@
         left: 50%;
         margin: 20px auto;
         width: 100%;
-        max-width: 1360px;
+        width: calc(100dvw - 80px);
         transform: translateX(-50%);
     }
 </style>

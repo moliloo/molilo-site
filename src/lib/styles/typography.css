@@ -8,6 +8,36 @@
     color: var(--text);
 }
 
+.blog-card-title {
+    margin: 0;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 37px;
+    color: var(--text);
+}
+
+.blog-card-text {
+    margin: 0;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--text);
+}
+
+.tags-label {
+    margin: 0;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text);
+}
+
 .section-header {
     margin: 0;
     font-family: 'JetBrains Mono';
