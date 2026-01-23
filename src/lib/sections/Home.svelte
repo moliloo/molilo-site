@@ -7,6 +7,7 @@
     import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
     import { SquareAltArrowLeft, SquareAltArrowRight } from '@solar-icons/svelte/Linear'
     import '@splidejs/svelte-splide/css/core';
+	import EmptyCard from '$lib/components/EmptyCard.svelte'
 
     const stackUp = [
         'webdev',
@@ -41,24 +42,28 @@
 <div class="blog-post">
     <h1 class="section-title section-header">blog posts</h1>
     <div class="section-content blog-grid">
-        <Splide options={slideOptions} hasTrack={ false } aria-label="Blog List">
-            <SplideTrack>
-                {#each posts.slice(0, 6) as post}
-                    <SplideSlide aria-label="Blog Post">
-                        <BlogCard {post} />
-                    </SplideSlide>
-                {/each}
-            </SplideTrack>
+        {#if posts.length === 0}
+            <EmptyCard />
+        {:else}
+            <Splide options={slideOptions} hasTrack={ false } aria-label="Blog List">
+                <SplideTrack>
+                    {#each posts.slice(0, 6) as post}
+                        <SplideSlide aria-label="Blog Post">
+                            <BlogCard {post} />
+                        </SplideSlide>
+                    {/each}
+                </SplideTrack>
 
-            <div class="splide__arrows">
-                <button class="splide__arrow splide__arrow--prev">
-                    <SquareAltArrowLeft size={48}/>
-                </button>
-                <button class="splide__arrow splide__arrow--next">
-                    <SquareAltArrowRight size={48}/>
-                </button>
-            </div>
-        </Splide>
+                <div class="splide__arrows">
+                    <button class="splide__arrow splide__arrow--prev">
+                        <SquareAltArrowLeft size={48}/>
+                    </button>
+                    <button class="splide__arrow splide__arrow--next">
+                        <SquareAltArrowRight size={48}/>
+                    </button>
+                </div>
+            </Splide>
+        {/if}
     </div>
     
 </div>
@@ -70,7 +75,6 @@
         grid-template-columns: repeat(20, 5%);
         gap: 40px;
         width: calc(100dvw - 80px);
-        max-width: 1360px;
     }
     .home {
         grid-row: 1;
@@ -82,7 +86,7 @@
         place-self: start;
 
         .blog-grid {
-            grid-column: 4 / 15;
+            grid-column: 4 / 13;
 
             .splide__arrows {
                 display: flex;
@@ -104,7 +108,7 @@
     }
 
     .section-content {
-        grid-column: 4 / 15;
+        grid-column: 4 / 13;
 
         p {
             margin-top: 40px;

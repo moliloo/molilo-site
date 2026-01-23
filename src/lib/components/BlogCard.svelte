@@ -60,7 +60,7 @@
             left: -40%;
             right: -40%;
             bottom: -40%;
-            top: 70%; /* 👈 começa no meio */
+            top: 70%;
 
             background: linear-gradient(
                 120deg,

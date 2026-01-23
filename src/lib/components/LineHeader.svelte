@@ -42,7 +42,7 @@
             var(--detail-blue) 100%
         );
 
-        background-size: 100% 6px;     /* espessura da borda */
+        background-size: 100% 6px;
         background-repeat: no-repeat;
         background-position: bottom;
     }
