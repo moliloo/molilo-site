@@ -46,8 +46,8 @@
         }
     }
     .layout {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        display: flex;
+        justify-content: center;
         gap: 40px;
 
         margin: 0 auto;

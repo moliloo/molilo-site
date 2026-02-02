@@ -31,15 +31,16 @@
     }
 </script>
 
-<div class="home">
-    <h1 class="section-title section-header">home</h1>
-    <div class="section-content">
-        <LineHeader labelUp={stackUp} labelDown={stackDown} />
-        <p class="primary-text">Hi, I'm Murilo, welcome to my place, feel free to look around.</p>
+<div class="sections">
+    <div class="home">
+        <h1 class="section-title section-header">home</h1>
+        <div class="section-content">
+            <LineHeader labelUp={stackUp} labelDown={stackDown} />
+            <p class="primary-text">Hi, I'm Murilo, welcome to my place, feel free to look around.</p>
+        </div>
     </div>
-</div>
 
-<div class="blog-post">
+    <div class="blog-post">
     <h1 class="section-title section-header">blog posts</h1>
     <div class="section-content blog-grid">
         {#if posts.length === 0}
@@ -65,53 +66,71 @@
             </Splide>
         {/if}
     </div>
-    
+
+    </div>
+
 </div>
 
 <style>
-    .home,
-    .blog-post {
-        display: grid;
-        grid-template-columns: repeat(13, 5%);
+    .sections {
+        display: flex;
+        flex-direction: column;
         gap: 40px;
         width: calc(100dvw - 80px);
     }
-    .home {
-        grid-row: 1;
-        place-self: end;
-    }
 
+    .home,
     .blog-post {
-        grid-row: 2;
-        place-self: start;
-
-        .blog-grid {
-            grid-column: 4 / 13;
-
-            .splide__arrows {
-                display: flex;
-                justify-content: center;
-                margin-top: 20px;
-
-                .splide__arrow {
-                    background: transparent;
-                    border: none;
-                    cursor: pointer;
-                }
-            }
-        }
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        width: 100%;
     }
 
     .section-title {
-        grid-column: 2 / 3;
-        align-self: start;
+        flex: 0 0 5%;
+        margin-left: 5%;
+        align-self: flex-start;
     }
 
     .section-content {
-        grid-column: 4 / 13;
+        flex: 0 0 70%;
+        margin-left: 5%;
+    }
 
-        p {
-            margin-top: 40px;
+    .blog-post .blog-grid {
+        width: 100%;
+    }
+
+    .splide__arrows {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .splide__arrow {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .section-content p {
+        margin-top: 40px;
+    }
+
+    @media (max-width: 800px) {
+        .home,
+        .blog-post {
+            flex-direction: column;
+        }
+        .section-title {
+            margin-left: 0;
+            flex: 0 0 auto;
+        }
+        .section-content {
+            margin-left: 0;
+            flex: 1 0 auto;
+            max-width: 100%;
         }
     }
 </style>
