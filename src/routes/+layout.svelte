@@ -29,5 +29,3 @@
 <Navbar />
 
 {@render children()}
-
-<Footer />
