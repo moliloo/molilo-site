@@ -16,6 +16,12 @@
 </div>
 
 <style>
+    :root[data-theme='light'] {
+        .section#about {
+            background-image: url('/assets/images/light-doted-bg.png');
+        }
+    }
+
     .snap-container {
         height: 100vh;
         overflow-y: scroll;
@@ -32,6 +38,10 @@
             background-position: center;
             background-repeat: no-repeat;
             grid-template-rows: 1fr 1fr;
+        }
+        
+        &#about {
+            background-image: url('/assets/images/dark-doted-bg.png');
         }
     }
     .layout {

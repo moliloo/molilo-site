@@ -72,7 +72,7 @@
     .home,
     .blog-post {
         display: grid;
-        grid-template-columns: repeat(20, 5%);
+        grid-template-columns: repeat(13, 5%);
         gap: 40px;
         width: calc(100dvw - 80px);
     }

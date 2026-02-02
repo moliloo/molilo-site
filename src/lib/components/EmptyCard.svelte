@@ -70,4 +70,16 @@
         height: 150px;
         width: 150px;
     }
+
+    @keyframes gradientMove {
+        0% {
+            transform: translate(0%, 0%);
+        }
+        50% {
+            transform: translate(20%, -20%);
+        }
+        100% {
+            transform: translate(0%, 0%);
+        }
+    }
 </style>

@@ -48,9 +48,9 @@
         <div class="controls">
             <button on:click={toggleTheme}>
                 {#if $theme === 'dark'}
-                    <Moon size={36} />
-                {:else}
                     <Sun size={36} />
+                {:else}
+                    <Moon size={36} />
                 {/if}
             </button>
 

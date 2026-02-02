@@ -26,15 +26,23 @@
     }
 
     :root[data-theme='light'] {
-        --bg: #ffffff;
+        --bg: #F5EDDD;
         --text: #111111;
         --hint-text: #11111150;
+
+        body {
+            background-image: url('/assets/images/light-bg.png');
+        }
     }
 
     :root[data-theme='dark'] {
         --bg: var(--bg-dark);
         --text: var(--dark-text);
         --hint-text: var(--dark-text-50);
+
+        body {
+            background-image: url('/assets/images/dark-bg.png');
+        }
     }
 
     .crt {
@@ -61,7 +69,6 @@
     }
 
     body {
-        background-image: url('/assets/images/dark-bg.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
