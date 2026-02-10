@@ -9,6 +9,7 @@
     import '@splidejs/svelte-splide/css/core';
 	import EmptyCard from '$lib/components/EmptyCard.svelte'
     import { onMount, onDestroy } from 'svelte';
+	import DescriptionCard from '$lib/components/DescriptionCard.svelte'
 
     const stackUp = [
         'murilo brito',
@@ -17,6 +18,73 @@
     const stackDown = [
         'webdev',
         'software engineering'
+    ];
+
+    let toolList = [
+        {
+            title: 'angular',
+            subtitle: 'Framework',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
+        },
+        {
+            title: 'svelte',
+            subtitle: 'Framework',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg',
+        },
+        {
+            title: 'nextjs',
+            subtitle: 'Framework',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+        },
+        {
+            title: 'figma',
+            subtitle: 'Program',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+        },
+        {
+            title: 'blender',
+            subtitle: 'Program',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg',
+        },
+        {
+            title: 'nodejs',
+            subtitle: 'runtime env',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+        },
+
+    ]
+
+    let devList = [
+        {
+            title: 'html',
+            subtitle: '',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
+        },
+        {
+            title: 'css',
+            subtitle: '',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
+        },
+        {
+            title: 'scss',
+            subtitle: '',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg',
+        },
+        {
+            title: 'less',
+            subtitle: '',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/less/less-plain-wordmark.svg',
+        },
+        {
+            title: 'typescript',
+            subtitle: '',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        },
+        {
+            title: 'javascript',
+            subtitle: '',
+            img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
+        },
     ];
 
     let aboutInner: HTMLElement | null = null;
@@ -65,6 +133,10 @@
                 <div class="dot" class:active={active === 'experiences'}></div>
                 <p class="primary-text">experiences</p>
             </a>
+            <a href="#work_tools" class="nav" on:click|preventDefault={() => navigate('work_tools')}>
+                <div class="dot" class:active={active === 'work_tools'}></div>
+                <p class="primary-text">work_tools</p>
+            </a>
             <a href="#languages" class="nav" on:click|preventDefault={() => navigate('languages')}>
                 <div class="dot" class:active={active === 'languages'}></div>
                 <p class="primary-text">languages</p>
@@ -86,6 +158,26 @@
                     <p class="primary-text">(Adicione aqui sua experiência de trabalho — cargos, empresas e anos.)</p>
                 </div>
             </section>
+
+            <section class="about-panel" id="work_tools">
+                <div class="section-content">
+                    <h1 class="section-header">tools</h1>
+                    <ul class="tools-list">
+                        {#each toolList as card}
+                            <DescriptionCard {card}></DescriptionCard>
+                        {/each}
+                    </ul>
+                </div>
+
+                <div class="section-content">
+                    <h1 class="section-header">dev</h1>
+                    <ul class="tools-list">
+                        {#each devList as card}
+                            <DescriptionCard {card}></DescriptionCard>
+                        {/each}
+                    </ul>
+                </div>
+            </section>
     
             <section class="about-panel" id="languages">
                 <div class="section-content">
@@ -102,7 +194,7 @@
     .about {
         display: flex;
         align-items: flex-start;
-        gap: 40px;
+        gap: 36px;
         width: calc(100dvw - 80px);
         height: 75%;
         margin-top: 40px;
@@ -121,7 +213,7 @@
         flex-direction: column;
         gap: 20px;
         height: 100%;
-        width: 60%;
+        width: 62%;
 
         .about-inner {
             flex: 1 1 auto;
@@ -138,6 +230,8 @@
         scroll-snap-align: start;
         display: flex;
         align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .about-nav {
@@ -189,8 +283,14 @@
     }
 
     .section-content {
-        flex: 0 0 70%;
-        margin-left: 5%;
+        .tools-list,
+        .dev-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 6px;
+        }
     }
 
     .section-content .primary-text {

@@ -28,6 +28,36 @@
     color: var(--text);
 }
 
+.card-title {
+    margin: 0;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 37px;
+    color: var(--text);
+}
+
+.card-subtitle {
+    margin: 0;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--text);
+}
+
+.card-tip {
+    margin: 0;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--hint-text);
+}
+
 .tags-label {
     margin: 0;
     font-family: 'JetBrains Mono';
