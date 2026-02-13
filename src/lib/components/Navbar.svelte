@@ -40,9 +40,9 @@
 
         <div class="nav">
             <a href="#home" class="primary-text">home</a>
-            <a href="#home" class="primary-text">about_me</a>
-            <a href="#home" class="primary-text">projects</a>
-            <a href="#home" class="primary-text">contact</a>
+            <a href="#about" class="primary-text">about_me</a>
+            <a href="#projects" class="primary-text">projects</a>
+            <a href="#contact" class="primary-text">contact</a>
         </div>
 
         <div class="controls">
