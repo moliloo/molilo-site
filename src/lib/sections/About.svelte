@@ -2,12 +2,7 @@
     import '$lib/styles/glassy-container.css'
     import '$lib/styles/typography.css'
     import LineHeader from '$lib/components/LineHeader.svelte';
-    import BlogCard from '$lib/components/BlogCard.svelte';
-    import { posts } from '$lib/content/blog';
-    import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
-    import { SquareAltArrowLeft, SquareAltArrowRight } from '@solar-icons/svelte/Linear'
     import '@splidejs/svelte-splide/css/core';
-	import EmptyCard from '$lib/components/EmptyCard.svelte'
     import { onMount, onDestroy } from 'svelte';
 	import DescriptionCard from '$lib/components/DescriptionCard.svelte'
 
@@ -87,6 +82,53 @@
         },
     ];
 
+    let languageList = [
+        {
+            title: 'portuguese',
+            subtitle: 'mother langague',
+            img: '/assets/svg/flags/br.svg',
+        },
+        {
+            title: 'english',
+            subtitle: 'intermediate',
+            img: '/assets/svg/flags/gb.svg',
+        },
+    ];
+
+    let workList = [
+        {
+            title: 'jr frontend dev',
+            subtitle: 'medisigh',
+            img: '/assets/svg/work/medisigh-icon.svg',
+            info: 'set. 2024 - present',
+            content: 'Currently work as a frontend Developer, where i am responsible for developing components and products to the platform. Focus on building reusable, scalable, and maintainable frontend components that support the platform’s overall architecture and user experience. Contributing to the UI/UX design process, using figma to design and prototype product interfaces, creating detailed screen layouts before development begins.'
+        },
+        {
+            title: 'internship qa',
+            subtitle: 'medisigh',
+            img: '/assets/svg/work/medisigh-icon.svg',
+            info: 'fev. 2025 - jun. 2025',
+            content: 'Testing and validating features of the application, making sure the quality and usability. This oportunity makes me lear about the product and how a project works overall, learning most of the flows and how a application works and your ecosystem'
+        },
+        {
+            title: 'intership frontend dev',
+            subtitle: 'medisigh',
+            img: '/assets/svg/work/medisigh-icon.svg',
+            info: 'set. 2024 - fev. 2025',
+            content: 'Responsible for developing visual solutions for the company’s program, with a focus on providing an intuitive and accessible user experience, ensuring ease of use and high customer satisfactionResponsible for developing visual solutions for the company’s program, with a focus on providing an intuitive and affordable user experience, ensuring ease of use and high customer satisfaction.'
+        },
+    ];
+
+    let schoolList = [
+        {
+            title: 'software engineering',
+            subtitle: 'uninter',
+            img: '/assets/svg/school/uninter.svg',
+            info: 'jul. 2023 - set.2026',
+            content: '-'
+        },
+    ];
+
     let aboutInner: HTMLElement | null = null;
     let active: string = 'who_i_am';
     let observer: IntersectionObserver | null = null;
@@ -154,26 +196,36 @@
 
             <section class="about-panel" id="experiences">
                 <div class="section-content">
-                    <h2 class="subheader">experiences</h2>
-                    <p class="primary-text">(Adicione aqui sua experiência de trabalho — cargos, empresas e anos.)</p>
+                    <h1 class="section-header">work</h1>
+                    <ul class="items-list">
+                        {#each workList as card}
+                            <li class="description-item"><DescriptionCard {card} expansible={true} /></li>
+                        {/each}
+                    </ul>
+                    <h1 class="section-header">school</h1>
+                    <ul class="items-list">
+                        {#each schoolList as card}
+                            <li class="description-item"><DescriptionCard {card} expansible={true} /></li>
+                        {/each}
+                    </ul>
                 </div>
             </section>
 
             <section class="about-panel" id="work_tools">
                 <div class="section-content">
                     <h1 class="section-header">tools</h1>
-                    <ul class="tools-list">
+                    <ul class="items-list">
                         {#each toolList as card}
-                            <DescriptionCard {card}></DescriptionCard>
+                            <li class="card-item"><DescriptionCard {card} /></li>
                         {/each}
                     </ul>
                 </div>
 
                 <div class="section-content">
                     <h1 class="section-header">dev</h1>
-                    <ul class="tools-list">
+                    <ul class="items-list">
                         {#each devList as card}
-                            <DescriptionCard {card}></DescriptionCard>
+                            <li class="card-item"><DescriptionCard {card} /></li>
                         {/each}
                     </ul>
                 </div>
@@ -181,8 +233,11 @@
     
             <section class="about-panel" id="languages">
                 <div class="section-content">
-                    <h2 class="subheader">languages</h2>
-                    <p class="primary-text">(Adicione aqui os idiomas que você conhece.)</p>
+                    <ul class="items-list">
+                        {#each languageList as card}
+                            <li class="card-item"><DescriptionCard {card} /></li>
+                        {/each}
+                    </ul>
                 </div>
             </section>
         </div>
@@ -226,7 +281,6 @@
 
     .about-panel {
         height: 100%;
-        min-height: 100%;
         scroll-snap-align: start;
         display: flex;
         align-items: flex-start;
@@ -283,18 +337,30 @@
     }
 
     .section-content {
-        .tools-list,
-        .dev-list {
+        width: 100%;
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: auto;
+
+        .items-list {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
             margin: 0;
             padding: 6px;
+            align-items: flex-start;
         }
-    }
 
-    .section-content .primary-text {
-        background: var(--bg);
+        .items-list > .description-item {
+            box-sizing: border-box;
+            list-style: none;
+            width: 98%;
+        }
+
+        .items-list > .card-item {
+            box-sizing: border-box;
+            list-style: none;
+        }
     }
 
     @media (max-width: 800px) {
