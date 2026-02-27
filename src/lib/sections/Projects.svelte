@@ -8,9 +8,11 @@
 
     let searchText: string = '';
 
-    $: filteredProjects = projects.filter(project =>
+    export let projects;
+
+    $: filteredProjects = projects.filter((project: any) =>
         project.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        project.tags.some(tag =>
+        project.tags.some((tag: any) =>
             tag.toLowerCase().includes(searchText.toLowerCase())
         )
     );
@@ -25,68 +27,68 @@
         'foundryvtt projects'
     ];
 
-    let projects = [
-        {
-            title: 'Lorem Ispum Pudim',
-            img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
-            tags: [
-                'tag 1',
-                'tag 2',
-                'tag 3',
-                'tag 4',
-            ]
-        },
-        {
-            title: 'Lorem Ispum Amassado',
-            img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
-            tags: [
-                'tag 1',
-                'tag 2',
-                'tag 3',
-                'tag 4',
-            ]
-        },
-        {
-            title: 'Lorem Ispum',
-            img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
-            tags: [
-                'tag 1',
-                'tag 2',
-                'tag 3',
-                'tag 4',
-            ]
-        },
-        {
-            title: 'Lorem Ispum',
-            img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
-            tags: [
-                'tag 1',
-                'tag 2',
-                'tag 3',
-                'tag 4',
-            ]
-        },
-        {
-            title: 'Lorem Ispum',
-            img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
-            tags: [
-                'tag 1',
-                'tag 2',
-                'tag 3',
-                'tag 4',
-            ]
-        },
-        {
-            title: 'Lorem Ispum',
-            img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
-            tags: [
-                'tag 1',
-                'tag 2',
-                'tag 3',
-                'tag 4',
-            ]
-        },
-    ]
+    // let projects = [
+    //     {
+    //         title: 'Lorem Ispum Pudim',
+    //         img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
+    //         tags: [
+    //             'tag 1',
+    //             'tag 2',
+    //             'tag 3',
+    //             'tag 4',
+    //         ]
+    //     },
+    //     {
+    //         title: 'Lorem Ispum Amassado',
+    //         img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
+    //         tags: [
+    //             'tag 1',
+    //             'tag 2',
+    //             'tag 3',
+    //             'tag 4',
+    //         ]
+    //     },
+    //     {
+    //         title: 'Lorem Ispum',
+    //         img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
+    //         tags: [
+    //             'tag 1',
+    //             'tag 2',
+    //             'tag 3',
+    //             'tag 4',
+    //         ]
+    //     },
+    //     {
+    //         title: 'Lorem Ispum',
+    //         img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
+    //         tags: [
+    //             'tag 1',
+    //             'tag 2',
+    //             'tag 3',
+    //             'tag 4',
+    //         ]
+    //     },
+    //     {
+    //         title: 'Lorem Ispum',
+    //         img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
+    //         tags: [
+    //             'tag 1',
+    //             'tag 2',
+    //             'tag 3',
+    //             'tag 4',
+    //         ]
+    //     },
+    //     {
+    //         title: 'Lorem Ispum',
+    //         img: 'https://images-ext-1.discordapp.net/external/Pd1GbfH6m13Z6BAqsqos47NfkpvFZHtYIkyq7JFfngE/https/pbs.twimg.com/media/HCDst7BbUAASsiP.jpg%3Alarge?format=webp&width=630&height=945',
+    //         tags: [
+    //             'tag 1',
+    //             'tag 2',
+    //             'tag 3',
+    //             'tag 4',
+    //         ]
+    //     },
+    // ]
 </script>
 
 <div class="projects">

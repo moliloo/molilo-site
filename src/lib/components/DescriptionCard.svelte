@@ -31,7 +31,10 @@
             on:click={() => toggle()}
             on:keydown={onKey}
         >
-        <img class="icon" src="{card.img}" alt="{card.title} icon">
+
+        {#if card.img}
+            <img class="icon" src="{card.img}" alt="{card.title} icon">
+        {/if}
 
         <div class="card-label">
             <h1 class="card-title">{card.title}</h1>
@@ -55,7 +58,9 @@
         </div>
     {:else}
         <div class="inner-card">
-            <img class="icon" src="{card.img}" alt="{card.title} icon">
+            {#if card.img}
+                <img class="icon" src="{card.img}" alt="{card.title} icon">
+            {/if}
 
             <div class="card-label">
                 <h1 class="card-title">{card.title}</h1>

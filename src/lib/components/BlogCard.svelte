@@ -6,6 +6,7 @@
     export let post;
 </script>
 
+<a href={`/blog/${post.slug}`} class="card-link">
 <div class="GlassContainer">
   <div class="GlassContent">
     <article class="blog-card">
@@ -32,8 +33,13 @@
     <div class="Highlight"></div>
   </div>
 </div>
-
+</a>
 <style>
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
     .blog-card {
         display: flex;
         flex-direction: column;
@@ -95,11 +101,13 @@
         transform: translateX(-5px);
         transition: all 0.2s ease-in-out;
         opacity: 0;
+        margin-left: auto;
     }
 
     .footer {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .tag {

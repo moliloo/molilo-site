@@ -3,11 +3,14 @@
     import '$lib/styles/typography.css'
     import LineHeader from '$lib/components/LineHeader.svelte';
     import BlogCard from '$lib/components/BlogCard.svelte';
-    import { posts } from '$lib/content/blog';
     import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
     import { SquareAltArrowLeft, SquareAltArrowRight } from '@solar-icons/svelte/Linear'
     import '@splidejs/svelte-splide/css/core';
 	import EmptyCard from '$lib/components/EmptyCard.svelte'
+
+    export let posts: any;
+
+    console.log(posts)
 
     const stackUp = [
         'webdev',

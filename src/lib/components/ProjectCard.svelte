@@ -6,10 +6,11 @@
     export let project;
 </script>
 
+<a href={`/projects/${project.slug}`} class="card-link">
 <div class="GlassContainer">
   <div class="GlassContent">
     <article class="project-card">
-        <img src="{project.img}" alt="">
+        <img src="{project.cover}" alt="">
         <h3 class="blog-card-title">{project.title}</h3>
 
         <div class="footer">
@@ -34,11 +35,16 @@
     <div class="Highlight"></div>
   </div>
 </div>
+</a>
 
 <style>
-    .GlassContainer {
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
         width: calc(50% - 20px);
     }
+
     .project-card {
         display: flex;
         flex-direction: column;
@@ -107,13 +113,13 @@
         transform: translateX(-5px);
         transition: all 0.2s ease-in-out;
         opacity: 0;
+        margin-left: auto;
     }
 
     .footer {
         display: flex;
-        justify-content: space-between;
-        gap: 10px;
         flex-wrap: wrap;
+        gap: 10px;
     }
 
     .tag {

@@ -1,17 +1,8 @@
-export interface BlogPost {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  tags: string[];
-  cover?: string;
-}
-
 const modules = import.meta.glob('./posts/*.md', {
   eager: true
 });
 
-export function getAllPosts() {
+export function getAllProjects() {
   return Object.entries(modules).map(([path, module]: any) => {
     const slug = path.split('/').pop()?.replace('.md', '');
 

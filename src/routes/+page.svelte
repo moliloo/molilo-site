@@ -1,16 +1,20 @@
-<script>
+<script lang='ts'>
 	import Home from "$lib/sections/Home.svelte"
 	import About from "$lib/sections/About.svelte"
 	import Projects from "$lib/sections/Projects.svelte"
 	import Contact from "$lib/sections/Contact.svelte"
+	import Navbar from "$lib/components/Navbar.svelte"
 
+    export let data;
 </script>
+<Navbar />
+
 <div class="snap-container">
-    <section class="layout section" id="home"><Home /></section>
+    <section class="layout section" id="home"><Home posts={data.posts} /></section>
     
     <section class="layout section" id="about"><About /></section>
     
-    <section class="layout section" id="projects"><Projects /></section>
+    <section class="layout section" id="projects"><Projects projects={data.projects} /></section>
     
     <section class="layout section" id="contact"><Contact /></section>
 </div>

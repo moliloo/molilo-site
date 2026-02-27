@@ -25,7 +25,4 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-
-<Navbar />
-
 {@render children()}
