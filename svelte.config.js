@@ -1,6 +1,14 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import { codeToHtml } from 'shiki';
+
+function escapeSvelte(code) {
+  return code
+    .replace(/[{]/g, '&#123;')
+    .replace(/[}]/g, '&#125;')
+    .replace(/\$/g, '&#36;');
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,7 +19,17 @@ const config = {
         vitePreprocess(),
         mdsvex({
             extensions: ['.md'],
-            layout: false
+            layout: false,
+            highlight: {
+                highlighter: async (code, lang = 'text') => {
+                    const html = await codeToHtml(code, {
+                        lang,
+                        theme: 'aurora-x'
+                    });
+
+                    return escapeSvelte(html);
+                }
+            }
         })
     ],
 

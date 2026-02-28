@@ -147,6 +147,10 @@
                 gap: 40px;
                 justify-content: space-between;
                 margin-top: 40px;
+
+                :global(.card-link)  {
+                    min-width: calc(50% - 20px);
+                }
             }
         }
     }

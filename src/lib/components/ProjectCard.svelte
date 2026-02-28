@@ -42,7 +42,6 @@
         text-decoration: none;
         color: inherit;
         display: block;
-        width: calc(50% - 20px);
     }
 
     .project-card {

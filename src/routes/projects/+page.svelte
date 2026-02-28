@@ -1,16 +1,16 @@
 <script lang='ts'>
-	import BlogCard from "$lib/components/BlogCard.svelte"
 	import BlogNavbar from "$lib/components/BlogNavbar.svelte"
 
     import '$lib/styles/typography.css';
     import '$lib/styles/glassy-container.css'
 	import SearchBar from "$lib/components/SearchBar.svelte"
+	import ProjectCard from "$lib/components/ProjectCard.svelte"
 
     export let data;
 
     let searchText: string = '';
 
-    $: filteredPosts = data.posts.filter((project: any) =>
+    $: filteredProjects = data.projects.filter((project: any) =>
         project.title.toLowerCase().includes(searchText.toLowerCase()) ||
         project.tags.some((tag: any) =>
             tag.toLowerCase().includes(searchText.toLowerCase())
@@ -21,15 +21,15 @@
 <BlogNavbar />
 
 <div class="blog-section">
-    <h1 class="section-title section-header">blog_posts</h1>
+    <h1 class="section-title section-header">projects</h1>
 
     <div class="search-bar-container">
         <SearchBar bind:text={searchText} />
     </div>
 
     <div class="blog-list">
-        {#each filteredPosts as post}
-            <BlogCard {post} />
+        {#each filteredProjects as project}
+            <ProjectCard {project} />
         {/each}
     </div>
 </div>

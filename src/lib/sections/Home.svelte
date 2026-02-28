@@ -7,10 +7,9 @@
     import { SquareAltArrowLeft, SquareAltArrowRight } from '@solar-icons/svelte/Linear'
     import '@splidejs/svelte-splide/css/core';
 	import EmptyCard from '$lib/components/EmptyCard.svelte'
+    import { MouseMinimalistic } from '@solar-icons/svelte/Linear'
 
     export let posts: any;
-
-    console.log(posts)
 
     const stackUp = [
         'webdev',
@@ -25,7 +24,7 @@
 
     let slideOptions = {
         rewind: true,
-        autoWidth: true,
+        width: '70%',
         gap   : '40px',
         pagination: false,
         type   : 'loop',
@@ -71,7 +70,6 @@
     </div>
 
     </div>
-
 </div>
 
 <style>
@@ -90,6 +88,17 @@
         width: 100%;
     }
 
+    .scroll-tip {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--text);
+
+        .line-fading {
+            background: var(--text);
+        }
+    }
+
     .section-title {
         flex: 0 0 5%;
         margin-left: 5%;
@@ -103,18 +112,25 @@
 
     .blog-post .blog-grid {
         width: 100%;
+        margin-left: 3.3%;
+    }
+
+    .splide {
+        width: 100% !important;
     }
 
     .splide__arrows {
         display: flex;
-        justify-content: center;
         margin-top: 20px;
+        margin-left: calc(50% - 106px);
     }
 
     .splide__arrow {
         background: transparent;
         border: none;
         cursor: pointer;
+        color: var(--text);
+
     }
 
     .section-content p {

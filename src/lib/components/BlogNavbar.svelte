@@ -8,6 +8,10 @@
     import { theme, crtEnabled, musicEnabled } from '$lib/stores/ui';
 	import { toggleMusic } from '$lib/audio/music'
 
+    import { page } from '$app/stores';
+
+    $: isBlog = $page.url.pathname.startsWith('/blog');
+
     import '$lib/styles/glassy-container.css'
 
     function toggleTheme() {
@@ -39,11 +43,12 @@
         <h1 class="header-title">molilo</h1>
 
         <div class="nav">
-            <a href="#home" class="primary-text">home</a>
-            <a href="#about" class="primary-text">about_me</a>
-            <a href="#projects" class="primary-text">projects</a>
-            <a href="#contact" class="primary-text">contact</a>
-            <a href="/blog" class="primary-text">blog</a>
+            {#if isBlog}
+                <a href="/blog" class="primary-text">blog_home</a>
+            {:else}
+                <a href="/projects" class="primary-text">projects</a>
+            {/if}
+            <a href="/" class="primary-text">main_page</a>
         </div>
 
         <div class="controls">
@@ -131,12 +136,10 @@
     }
 
     .GlassContainer {
-        position: absolute;
+        position: sticky;
         top: 0;
-        left: 50%;
         margin: 20px auto;
         width: 100%;
         width: calc(100dvw - 80px);
-        transform: translateX(-50%);
     }
 </style>

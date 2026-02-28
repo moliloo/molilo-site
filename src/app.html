@@ -16,6 +16,8 @@
         color-scheme: light dark;
 
         --bg-dark: #00010b;
+        --dark-gray: #111111;
+        --dark-gray-50: #11111150;
         --dark-text: #faf0e4;
         --dark-bg: #00010b;
         --detail-blue: #4677e0;
@@ -27,8 +29,8 @@
 
     :root[data-theme='light'] {
         --bg: #F5EDDD;
-        --text: #111111;
-        --hint-text: #11111150;
+        --text: var(--dark-gray);
+        --hint-text: var(--dark-gray-50);
 
         body {
             background-image: url('/assets/images/light-bg.png');
