@@ -124,4 +124,21 @@
             }
         }
     }
+
+    @media (max-width: 800px) {
+        .contact {
+            flex-direction: column;
+            margin-top: 0;
+            gap: 18px;
+        }
+
+        .section-title{
+            margin-left: 0;
+            flex: 0 0 auto;
+        }
+
+        .contact-section {
+            width: 100%;
+        }
+    }
 </style>
