@@ -369,7 +369,8 @@
             margin-top: 0;
         }
         .section-title,
-        .about-nav {
+        .about-nav,
+        .about-left  {
             margin-left: 0;
             flex: 0 0 auto;
         }

@@ -154,4 +154,36 @@
             }
         }
     }
+
+    @media (max-width: 800px) {
+        .projects {
+            flex-direction: column;
+            margin-top: 0;
+            gap: 18px;
+        }
+
+        .section-title{
+            margin-left: 0;
+            flex: 0 0 auto;
+        }
+
+        .project-section {
+            width: 100%;
+
+            .project-inner {
+                height: 90%;
+                overflow-y: auto;
+                scroll-snap-type: none;
+                -webkit-overflow-scrolling: touch;
+
+                .project-list {
+                    flex-direction: column;
+                    gap: 20px;
+                    margin-top: 20px;
+                    padding-bottom: 80px;
+                }
+        }
+
+        }
+    }
 </style>
