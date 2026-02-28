@@ -7,6 +7,7 @@
   <div class="GlassContent">
     <div class="footer">
         <p class="primary-text">molilo © 2026</p>
+        <p class="primary-text">Icons by Solar Icons © Hakim Saoudi - CC BY 4.0</p>
     </div>
   </div>
   <div class="GlassMaterial">
@@ -23,11 +24,17 @@
 <style>
     .footer {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         height: 40px;
         align-items: center;
         padding-top: 8px;
         padding-bottom: 12px;
+
+        .primary-text {
+            font-size: 12px;
+            line-height: 16px;
+        }
 
         background-image: linear-gradient(
             90deg,
