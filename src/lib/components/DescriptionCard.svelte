@@ -159,6 +159,38 @@
         border-radius: 0 0 10px 10px;
     }
 
+    @media (max-width: 800px) {
+        .inner-card {
+            flex-wrap: wrap;
+            padding: 5px;
+
+            .icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            &.expansible {
+
+                .card-info {
+                    display: none;
+                }
+            }
+
+            .card-label {
+                flex-wrap: wrap;
+
+
+                .card-title {
+                    font-size: 20px;
+                }
+
+                .card-subtitle {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
     @keyframes rotate {
         to {
             --angle: 360deg;

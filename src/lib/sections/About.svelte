@@ -366,6 +366,7 @@
     @media (max-width: 800px) {
         .about {
             flex-direction: column;
+            margin-top: 0;
         }
         .section-title,
         .about-nav {
@@ -376,6 +377,28 @@
             margin-left: 0;
             flex: 1 0 auto;
             max-width: 100%;
+
+            .items-list {
+                gap: 5px;
+            }
+        }
+
+        .about-sections {
+            width: 100%;
+
+            .about-inner {
+                flex: 1 1 auto;
+                height: 90%;
+                overflow-y: auto;
+                scroll-snap-type: none;
+            }
+        }
+        
+        .about-nav {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
         }
     }
 </style>
