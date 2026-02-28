@@ -19,6 +19,18 @@
             toggle();
         }
     }
+
+    function handleClick() {
+        if (card.link) {
+            window.open(card.link, '_blank', 'noopener,noreferrer');
+            return;
+        }
+
+        if (card.email) {
+            window.location.href = `mailto:${card.email}`;
+            return;
+        }
+    }
 </script>
 
 <div class="description-card" class:expansible={expansible} class:open={open}>
@@ -57,7 +69,7 @@
         {/if}
         </div>
     {:else}
-        <div class="inner-card">
+        <div class="inner-card" class:clickable={card.link || card.email} on:click={handleClick}>
             {#if card.img}
                 <img class="icon" src="{card.img}" alt="{card.title} icon">
             {/if}
@@ -134,6 +146,10 @@
         position: relative;
         transition: all 0.2s ease;
         cursor: default;
+
+        &.clickable {
+            cursor: pointer;
+        }
 
         &.expansible {
             cursor: pointer;

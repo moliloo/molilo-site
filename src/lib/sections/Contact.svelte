@@ -20,26 +20,31 @@
             title: 'molilo_o',
             subtitle: 'twitter',
             img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg',
+            link: 'https://twitter.com/molilo_o'
         },
         {
             title: 'Murilo Brito',
             subtitle: 'linkedin',
             img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg',
+            link: 'https://www.linkedin.com/in/murilo-brito-00189518a/'
         },
         {
             title: 'moliloo',
             subtitle: 'gitlab',
             img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg',
+            link: 'https://gitlab.com/moliloo'
         },
         {
             title: 'moliloo',
             subtitle: 'github',
             img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
+            link: 'https://github.com/moliloo'
         },
         {
-            title: 'contact@molilo.dev',
+            title: 'dev.murilobrito@gmail.com',
             subtitle: 'e-mail',
             img: '',
+            email: 'dev.murilobrito@gmail.com'
         },
     ]
 </script>
