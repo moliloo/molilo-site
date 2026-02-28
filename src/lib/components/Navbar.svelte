@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { Moon, Sun, Tv, VolumeSmall, VolumeCross } from '@solar-icons/svelte/Linear'
+    import { Moon, Sun, Tv, VolumeSmall, VolumeCross, SidebarMinimalistic, SquareTopDown } from '@solar-icons/svelte/Linear'
     import { Tv as TvBold } from '@solar-icons/svelte/Bold'
 	import headerDetail from '$lib/assets/svg/header_detail.svg';
 	import '$lib/styles/typography.css';
@@ -10,10 +10,15 @@
 
     import '$lib/styles/glassy-container.css'
 
+    import { sidebarOpen } from '$lib/stores/ui';
+
     function toggleTheme() {
         theme.update(t => (t === 'dark' ? 'light' : 'dark'));
     }
 
+    function toggleSidebar() {
+        sidebarOpen.update(v => !v);
+    }
 
     onMount(() => {
         const unsub = musicEnabled.subscribe((enabled) => {
@@ -38,15 +43,15 @@
         <img class="detail" src="{headerDetail}" alt="">
         <h1 class="header-title">molilo</h1>
 
-        <div class="nav">
+        <div class="nav desktop-only">
             <a href="#home" class="primary-text">home</a>
             <a href="#about" class="primary-text">about_me</a>
             <a href="#projects" class="primary-text">projects</a>
             <a href="#contact" class="primary-text">contact</a>
-            <a href="/blog" class="primary-text">blog</a>
+            <a href="/blog" class="primary-text">blog <SquareTopDown size={20} /></a>
         </div>
 
-        <div class="controls">
+        <div class="controls desktop-only">
             <button on:click={toggleTheme}>
                 {#if $theme === 'dark'}
                     <Sun size={36} />
@@ -69,6 +74,12 @@
                 {:else}
                     <VolumeCross size={36} />
                 {/if}
+            </button>
+        </div>
+        
+        <div class="controls mobile-only">
+            <button class="hamburger " on:click={toggleSidebar} aria-label="Open menu">
+                <SidebarMinimalistic size={36} />
             </button>
         </div>
     </nav>
@@ -113,6 +124,9 @@
             gap: 40px;
 
             a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
                 text-decoration: none;
             }
         }
@@ -138,5 +152,36 @@
         width: 100%;
         width: calc(100dvw - 80px);
         transform: translateX(-50%);
+    }
+
+    .controls.mobile-only {
+        display: none;
+    }
+
+    .desktop-only {
+        display: flex;
+    }
+
+    @media (max-width: 1100px) {
+        .navbar {
+            .nav,
+            .controls {
+                gap: 16px;
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        .nav.desktop-only,
+        .controls.desktop-only {
+            display: none;
+        }
+        .controls.mobile-only {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 4px;
+        }
     }
 </style>

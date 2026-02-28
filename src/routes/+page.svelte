@@ -4,12 +4,18 @@
 	import Projects from "$lib/sections/Projects.svelte"
 	import Contact from "$lib/sections/Contact.svelte"
 	import Navbar from "$lib/components/Navbar.svelte"
+	import SideNav from "$lib/components/SideNav.svelte"
+	import { sidebarOpen } from "$lib/stores/ui.js"
 
     export let data;
 </script>
-<Navbar />
 
-<div class="snap-container">
+{#if $sidebarOpen}
+<SideNav />
+{/if}
+
+<div class="snap-container" class:blur-page={$sidebarOpen}>
+    <Navbar />
     <section class="layout section" id="home"><Home posts={data.posts} /></section>
     
     <section class="layout section" id="about"><About /></section>
@@ -31,6 +37,25 @@
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
         overflow-x: hidden;
+
+        &.blur-page {
+            filter: blur(6px);
+            pointer-events: none;
+            user-select: none;
+            transition: filter 0.3s ease;
+
+            &::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.4);
+                pointer-events: none;
+                z-index: 10;
+            }
+        }
     }
     .section {
         height: 100vh;

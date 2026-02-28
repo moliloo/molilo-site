@@ -5,3 +5,5 @@ export const theme = writable<'dark' | 'light'>('dark');
 export const crtEnabled = writable(false);
 
 export const musicEnabled = writable(false);
+
+export const sidebarOpen = writable(false);

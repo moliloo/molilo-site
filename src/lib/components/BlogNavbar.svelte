@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { Moon, Sun, Tv, VolumeSmall, VolumeCross } from '@solar-icons/svelte/Linear'
+    import { Moon, Sun, Tv, VolumeSmall, VolumeCross, SquareTopDown } from '@solar-icons/svelte/Linear'
     import { Tv as TvBold } from '@solar-icons/svelte/Bold'
 	import headerDetail from '$lib/assets/svg/header_detail.svg';
 	import '$lib/styles/typography.css';
@@ -48,7 +48,7 @@
             {:else}
                 <a href="/projects" class="primary-text">projects</a>
             {/if}
-            <a href="/" class="primary-text">main_page</a>
+            <a href="/" class="primary-text">main_page <SquareTopDown size={20} /></a>
         </div>
 
         <div class="controls">
@@ -118,6 +118,9 @@
             gap: 40px;
 
             a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
                 text-decoration: none;
             }
         }
