@@ -58,7 +58,7 @@
                 <Tv size={36} />
             {/if}
         </button>
-
+        {#if false}
         <button on:click={() => musicEnabled.update(m => !m)}>
             {#if $musicEnabled}
                 <VolumeSmall size={36} />
@@ -66,6 +66,7 @@
                 <VolumeCross size={36} />
             {/if}
         </button>
+        {/if}
     </div>
 </aside>
 
